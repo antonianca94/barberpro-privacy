@@ -4,214 +4,419 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Política de Privacidade — BarberPro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0B0B0B;
-      --surface: #161616;
-      --border: #262626;
-      --text: #E5E5E5;
-      --text-muted: #A3A3A3;
-      --accent: #2763EB;
+      --bg: #0D1117;
+      --surface: #161B22;
+      --card: #1C2333;
+      --card-elevated: #21262D;
+      --accent: #2563EB;
+      --accent-dark: #1D4ED8;
+      --accent-soft: #3B82F6;
+      --gold: #F59E0B;
+      --success: #10B981;
+      --text-primary: #FFFFFF;
+      --text-secondary: #8B949E;
+      --text-muted: #484F58;
+      --border: #30363D;
+      --divider: #21262D;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       background: var(--bg);
-      color: var(--text);
+      color: var(--text-primary);
       line-height: 1.7;
-      padding: 2rem 1rem;
     }
-    .container {
+
+    /* ── Hero / Header ─────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+      padding: 3rem 1rem 4.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: -20%;
+      width: 60%;
+      height: 60%;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.35) 0%, transparent 70%);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -50%;
+      right: -20%;
+      width: 60%;
+      height: 60%;
+      background: radial-gradient(circle, rgba(14, 165, 233, 0.25) 0%, transparent 70%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
       max-width: 720px;
       margin: 0 auto;
     }
-    .header {
-      text-align: center;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 2rem;
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 1rem;
     }
-    .header h1 {
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      background: #FFFFFF;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .brand-mark svg {
+      width: 28px;
+      height: 28px;
+    }
+    .brand-name {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #FFFFFF;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    .brand-tagline {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    .hero-title {
       font-size: 1.75rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
+      color: #FFFFFF;
+      margin-top: 1.5rem;
     }
-    .header .date {
-      color: var(--text-muted);
-      font-size: 0.9rem;
+    .hero-updated {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 0.75rem;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #FFFFFF;
+      backdrop-filter: blur(4px);
     }
-    .intro {
-      color: var(--text-muted);
-      margin-bottom: 2rem;
+
+    /* ── Container ─────────────────────────────────── */
+    .container {
+      max-width: 720px;
+      margin: -2rem auto 0;
+      padding: 0 1rem 3rem;
+      position: relative;
+      z-index: 2;
+    }
+    .intro-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    }
+    .intro-card p {
+      color: var(--text-secondary);
       font-size: 0.95rem;
     }
+
+    /* ── Sections ──────────────────────────────────── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      margin-bottom: 1rem;
+    }
     h2 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-top: 2rem;
-      margin-bottom: 0.75rem;
-      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      letter-spacing: -0.3px;
+    }
+    .badge {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #FFFFFF;
     }
     h3 {
       font-size: 1rem;
       font-weight: 600;
-      margin-top: 1.25rem;
+      color: var(--accent-soft);
+      margin-top: 1.1rem;
       margin-bottom: 0.5rem;
     }
     p, li {
-      font-size: 0.95rem;
-      color: var(--text-muted);
+      font-size: 0.93rem;
+      color: var(--text-secondary);
       margin-bottom: 0.5rem;
     }
     ul {
       padding-left: 1.25rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
     }
-    li { margin-bottom: 0.35rem; }
-    strong { color: var(--text); }
-    hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 2rem 0;
+    li {
+      margin-bottom: 0.35rem;
     }
+    li::marker {
+      color: var(--accent);
+    }
+    strong { color: var(--text-primary); font-weight: 600; }
+
+    /* ── Contact / CTA ─────────────────────────────── */
+    .contact-card {
+      background: linear-gradient(135deg, #1C2333 0%, #21262D 100%);
+      border: 1px solid var(--accent);
+      border-radius: 16px;
+      padding: 1.5rem 1.75rem;
+      margin-top: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: #FFFFFF;
+    }
+    .contact-text p { margin-bottom: 0.15rem; }
+    .contact-text .email {
+      color: var(--accent-soft);
+      font-weight: 600;
+      font-size: 1rem;
+      word-break: break-all;
+    }
+    .contact-text .label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    /* ── Footer ────────────────────────────────────── */
     .footer {
       text-align: center;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--divider);
+      margin-top: 1.5rem;
       color: var(--text-muted);
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-style: italic;
     }
-    .contact {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
-      margin-top: 0.75rem;
+    .footer .separator {
+      color: var(--border);
     }
-    .contact p { margin-bottom: 0.25rem; }
+    .gold-text { color: var(--gold); }
+
+    @media (max-width: 480px) {
+      .hero { padding: 2rem 1rem 3.5rem; }
+      .brand-name { font-size: 1.3rem; }
+      .hero-title { font-size: 1.4rem; }
+      .card { padding: 1.25rem; }
+      .contact-card { flex-direction: column; align-items: flex-start; }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <h1>Política de Privacidade</h1>
-      <p class="date">Última atualização: 10 de setembro de 2026</p>
-    </div>
 
-    <p class="intro">
-      O BarberPro ("nós", "nosso") respeita sua privacidade. Esta Política de Privacidade
+  <!-- Header / Hero -->
+  <header class="hero">
+    <div class="hero-content">
+      <div class="brand">
+        <div class="brand-mark">
+          <svg viewBox="0 0 356 448" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#2563EB" d="M35.2 448C25.8133 448 17.4933 444.8 10.24 438.4C3.41334 432 9.53674e-06 424.533 9.53674e-06 416V32C9.53674e-06 23.04 3.41334 15.5733 10.24 9.59996C17.0667 3.19997 25.3867 -3.05176e-05 35.2 -3.05176e-05H211.2C249.6 -3.05176e-05 280.107 11.3066 302.72 33.92C325.76 56.1067 337.28 86.1866 337.28 124.16C337.28 143.36 331.947 161.707 321.28 179.2C311.04 196.267 297.6 209.067 280.96 217.6V218.88C304.427 226.56 322.773 239.36 336 257.28C349.227 274.773 355.84 295.467 355.84 319.36C355.84 344.533 350.293 366.933 339.2 386.56C328.533 405.76 313.173 420.907 293.12 432C273.493 442.667 251.093 448 225.92 448H35.2ZM209.92 194.56C226.133 194.56 240 187.947 251.52 174.72C263.467 161.067 269.44 144.853 269.44 126.08C269.44 105.173 264.107 88.7466 253.44 76.8C243.2 64.8533 228.693 58.88 209.92 58.88H67.84V194.56H209.92ZM222.72 389.12C242.773 389.12 258.56 383.147 270.08 371.2C282.027 358.827 288 341.76 288 320C288 299.093 282.24 282.667 270.72 270.72C259.2 258.773 243.2 252.8 222.72 252.8H67.84V389.12H222.72Z"/>
+          </svg>
+        </div>
+        <span class="brand-name">BarberPro</span>
+      </div>
+      <p class="brand-tagline">O estilo que você merece</p>
+      <h1 class="hero-title">Política de Privacidade</h1>
+      <span class="hero-updated">Última atualização: 10 de setembro de 2026</span>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <main class="container">
+
+    <div class="intro-card">
+      <p>O BarberPro ("nós", "nosso") respeita sua privacidade. Esta Política de Privacidade
       descreve como coletamos, usamos e protegemos suas informações ao utilizar o aplicativo
-      BarberPro (o "Aplicativo").
-    </p>
-
-    <h2>1. Informações que Coletamos</h2>
-
-    <h3>1.1 Informações de Cadastro</h3>
-    <ul>
-      <li>Nome completo</li>
-      <li>Endereço de e-mail</li>
-      <li>Número de telefone</li>
-      <li>Foto de perfil (quando fornecida pelo usuário)</li>
-    </ul>
-
-    <h3>1.2 Informações de Localização</h3>
-    <ul>
-      <li>Localização em tempo real (quando autorizada) para encontrar barbearias próximas</li>
-      <li>Localização aproximada baseada em redes Wi-Fi e torres de celular</li>
-    </ul>
-
-    <h3>1.3 Informações de Pagamento</h3>
-    <ul>
-      <li>Dados de transações processadas por meio de nossos parceiros de pagamento (Asaas)</li>
-      <li>Não armazenamos dados de cartão de crédito diretamente</li>
-    </ul>
-
-    <h3>1.4 Informações do Dispositivo</h3>
-    <ul>
-      <li>Identificador do dispositivo</li>
-      <li>Sistema operacional e versão</li>
-      <li>Dados de conectividade de rede</li>
-    </ul>
-
-    <h3>1.5 Dados de Uso</h3>
-    <ul>
-      <li>Horários de agendamentos</li>
-      <li>Serviços utilizados</li>
-      <li>Interações com o aplicativo</li>
-    </ul>
-
-    <hr>
-
-    <h2>2. Como Utilizamos suas Informações</h2>
-    <p>Utilizamos suas informações para:</p>
-    <ul>
-      <li><strong>Prestação de serviços:</strong> Processar agendamentos, conectar clientes a barbeiros e processar pagamentos.</li>
-      <li><strong>Comunicação:</strong> Enviar confirmações de agendamento, lembretes e notificações push relacionadas aos seus serviços.</li>
-      <li><strong>Melhoria do serviço:</strong> Analisar o uso do aplicativo para melhorar funcionalidades e experiência do usuário.</li>
-      <li><strong>Segurança:</strong> Prevenir fraudes e garantir a segurança da plataforma.</li>
-    </ul>
-
-    <hr>
-
-    <h2>3. Compartilhamento de Dados</h2>
-    <p>Não vendemos suas informações pessoais. Seus dados podem ser compartilhados apenas com:</p>
-    <ul>
-      <li><strong>Barbeiros/Barbearias:</strong> Para confirmar e realizar os agendamentos solicitados.</li>
-      <li><strong>Parceiros de pagamento (Asaas):</strong> Para processar transações financeiras.</li>
-      <li><strong>Firebase (Google):</strong> Para envio de notificações push e analytics do aplicativo.</li>
-      <li><strong>Supabase:</strong> Para armazenamento e gerenciamento de dados do aplicativo.</li>
-      <li><strong>Autoridades legais:</strong> Quando exigido por lei ou ordem judicial.</li>
-    </ul>
-
-    <hr>
-
-    <h2>4. Armazenamento e Segurança</h2>
-    <ul>
-      <li>Seus dados são armazenados em servidores seguros gerenciados pelo Supabase e Google Cloud.</li>
-      <li>Utilizamos criptografia em trânsito (TLS/SSL) para proteger seus dados.</li>
-      <li>Medidas de segurança físicas e lógicas são mantidas para prevenir acesso não autorizado.</li>
-      <li>Dados de pagamento não são armazenados no nosso servidor — são processados diretamente pelo Asaas.</li>
-    </ul>
-
-    <hr>
-
-    <h2>5. Seus Direitos</h2>
-    <p>Você tem o direito de:</p>
-    <ul>
-      <li><strong>Acessar</strong> seus dados pessoais armazenados.</li>
-      <li><strong>Corrigir</strong> dados incompletos ou desatualizados.</li>
-      <li><strong>Solicitar a exclusão</strong> de seus dados pessoais.</li>
-      <li><strong>Revogar o consentimento</strong> de uso de localização e notificações a qualquer momento pelas configurações do seu dispositivo.</li>
-    </ul>
-    <div class="contact">
-      <p>Para exercer esses direitos, entre em contato:</p>
-      <p><strong>E-mail:</strong> barberproapk@gmail.com</p>
+      BarberPro (o "Aplicativo").</p>
     </div>
 
-    <hr>
+    <!-- 1 -->
+    <section class="card">
+      <h2><span class="badge">1</span>Informações que Coletamos</h2>
+      <h3>1.1 Informações de Cadastro</h3>
+      <ul>
+        <li>Nome completo</li>
+        <li>Endereço de e-mail</li>
+        <li>Número de telefone</li>
+        <li>Foto de perfil (quando fornecida pelo usuário)</li>
+      </ul>
+      <h3>1.2 Informações de Localização</h3>
+      <ul>
+        <li>Localização em tempo real (quando autorizada) para encontrar barbearias próximas</li>
+        <li>Localização aproximada baseada em redes Wi-Fi e torres de celular</li>
+      </ul>
+      <h3>1.3 Informações de Pagamento</h3>
+      <ul>
+        <li>Dados de transações processadas por meio de nossos parceiros de pagamento (Asaas)</li>
+        <li>Não armazenamos dados de cartão de crédito diretamente</li>
+      </ul>
+      <h3>1.4 Informações do Dispositivo</h3>
+      <ul>
+        <li>Identificador do dispositivo</li>
+        <li>Sistema operacional e versão</li>
+        <li>Dados de conectividade de rede</li>
+      </ul>
+      <h3>1.5 Dados de Uso</h3>
+      <ul>
+        <li>Horários de agendamentos</li>
+        <li>Serviços utilizados</li>
+        <li>Interações com o aplicativo</li>
+      </ul>
+    </section>
 
-    <h2>6. Menores de Idade</h2>
-    <p>O BarberPro não é direcionado a menores de 18 anos. Não coletamos intencionalmente informações de menores de idade. Se tomarmos conhecimento de que coletamos dados de um menor, excluiremos essas informações imediatamente.</p>
+    <!-- 2 -->
+    <section class="card">
+      <h2><span class="badge">2</span>Como Utilizamos suas Informações</h2>
+      <p>Utilizamos suas informações para:</p>
+      <ul>
+        <li><strong>Prestação de serviços:</strong> Processar agendamentos, conectar clientes a barbeiros e processar pagamentos.</li>
+        <li><strong>Comunicação:</strong> Enviar confirmações de agendamento, lembretes e notificações push relacionadas aos seus serviços.</li>
+        <li><strong>Melhoria do serviço:</strong> Analisar o uso do aplicativo para melhorar funcionalidades e experiência do usuário.</li>
+        <li><strong>Segurança:</strong> Prevenir fraudes e garantir a segurança da plataforma.</li>
+      </ul>
+    </section>
 
-    <hr>
+    <!-- 3 -->
+    <section class="card">
+      <h2><span class="badge">3</span>Compartilhamento de Dados</h2>
+      <p>Não vendemos suas informações pessoais. Seus dados podem ser compartilhados apenas com:</p>
+      <ul>
+        <li><strong>Barbeiros/Barbearias:</strong> Para confirmar e realizar os agendamentos solicitados.</li>
+        <li><strong>Parceiros de pagamento (Asaas):</strong> Para processar transações financeiras.</li>
+        <li><strong>Firebase (Google):</strong> Para envio de notificações push e analytics do aplicativo.</li>
+        <li><strong>Supabase:</strong> Para armazenamento e gerenciamento de dados do aplicativo.</li>
+        <li><strong>Autoridades legais:</strong> Quando exigido por lei ou ordem judicial.</li>
+      </ul>
+    </section>
 
-    <h2>7. Alterações nesta Política</h2>
-    <p>Reservamo-nos o direito de atualizar esta Política de Privacidade a qualquer momento. Notificaremos os usuários sobre alterações significativas por meio do aplicativo ou por e-mail.</p>
+    <!-- 4 -->
+    <section class="card">
+      <h2><span class="badge">4</span>Armazenamento e Segurança</h2>
+      <ul>
+        <li>Seus dados são armazenados em servidores seguros gerenciados pelo Supabase e Google Cloud.</li>
+        <li>Utilizamos criptografia em trânsito (TLS/SSL) para proteger seus dados.</li>
+        <li>Medidas de segurança físicas e lógicas são mantidas para prevenir acesso não autorizado.</li>
+        <li>Dados de pagamento não são armazenados no nosso servidor — são processados diretamente pelo Asaas.</li>
+      </ul>
+    </section>
 
-    <hr>
+    <!-- 5 -->
+    <section class="card">
+      <h2><span class="badge">5</span>Seus Direitos</h2>
+      <p>Você tem o direito de:</p>
+      <ul>
+        <li><strong>Acessar</strong> seus dados pessoais armazenados.</li>
+        <li><strong>Corrigir</strong> dados incompletos ou desatualizados.</li>
+        <li><strong>Solicitar a exclusão</strong> de seus dados pessoais.</li>
+        <li><strong>Revogar o consentimento</strong> de uso de localização e notificações a qualquer momento pelas configurações do seu dispositivo.</li>
+      </ul>
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 4.008c-.007 0-.011 0-.018 0H2.018C2.006 4.008 2 4.01 2 4.02V9h2V6.48l6.453 5.537a1.5 1.5 0 0 0 2.094 0L19 6.48V9h2v-.022c0-.01-.005-.012-.013-.012h-.006-.001c-.55 0-.997-.447-.997-.998V5.006c0-.55-.447-.997-.997-.997H5.003c-.55 0-.997.447-.997.997v2.982c0 .551-.447.998-.997.998h-.011C2.44 8.984 2 9.42 2 10v4h2v-2.48l3.428 2.943A1.5 1.5 0 0 0 8.1 14.4L4.19 17.99H8.5v2h4v-2h3.309l-3.908-3.59a1.5 1.5 0 0 0 2.331-1.297L22 9.98V4.02c0-.01-.006-.012-.013-.012H22z"/>
+            <path d="M4 20h5v2H2v-5h2zM18 12h4v4.992A1.992 1.992 0 0 1 20.008 19H17v-2h3.4L18 14z"/>
+          </svg>
+        </div>
+        <div class="contact-text">
+          <p class="label">Para exercer esses direitos, entre em contato</p>
+          <p class="email">barberproapk@gmail.com</p>
+        </div>
+      </div>
+    </section>
 
-    <h2>8. Contato</h2>
-    <div class="contact">
+    <!-- 6 -->
+    <section class="card">
+      <h2><span class="badge">6</span>Menores de Idade</h2>
+      <p>O BarberPro não é direcionado a menores de 18 anos. Não coletamos intencionalmente informações de menores de idade. Se tomarmos conhecimento de que coletamos dados de um menor, excluiremos essas informações imediatamente.</p>
+    </section>
+
+    <!-- 7 -->
+    <section class="card">
+      <h2><span class="badge">7</span>Alterações nesta Política</h2>
+      <p>Reservamo-nos o direito de atualizar esta Política de Privacidade a qualquer momento. Notificaremos os usuários sobre alterações significativas por meio do aplicativo ou por e-mail.</p>
+    </section>
+
+    <!-- 8 -->
+    <section class="card">
+      <h2><span class="badge">8</span>Contato</h2>
       <p>Se você tiver dúvidas sobre esta Política de Privacidade, entre em contato:</p>
-      <p><strong>E-mail:</strong> barberproapk@gmail.com</p>
-      <p><strong>Aplicativo:</strong> BarberPro</p>
-    </div>
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 4.008c-.007 0-.011 0-.018 0H2.018C2.006 4.008 2 4.01 2 4.02V9h2V6.48l6.453 5.537a1.5 1.5 0 0 0 2.094 0L19 6.48V9h2v-.022c0-.01-.005-.012-.013-.012h-.006-.001c-.55 0-.997-.447-.997-.998V5.006c0-.55-.447-.997-.997-.997H5.003c-.55 0-.997.447-.997.997v2.982c0 .551-.447.998-.997.998h-.011C2.44 8.984 2 9.42 2 10v4h2v-2.48l3.428 2.943A1.5 1.5 0 0 0 8.1 14.4L4.19 17.99H8.5v2h4v-2h3.309l-3.908-3.59a1.5 1.5 0 0 0 2.331-1.297L22 9.98V4.02c0-.01-.006-.012-.013-.012H22z"/>
+            <path d="M4 20h5v2H2v-5h2zM18 12h4v4.992A1.992 1.992 0 0 1 20.008 19H17v-2h3.4L18 14z"/>
+          </svg>
+        </div>
+        <div class="contact-text">
+          <p class="label">E-mail</p>
+          <p class="email">barberproapk@gmail.com</p>
+          <p class="label" style="margin-top:0.5rem;">Aplicativo</p>
+          <p class="app-name" style="color:var(--text-primary);font-weight:600;">BarberPro</p>
+        </div>
+      </div>
+    </section>
 
-    <div class="footer">
-      Esta política está em conformidade com a Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018) e os requisitos da Google Play Store.
-    </div>
-  </div>
+    <footer class="footer">
+      <p>Esta política está em conformidade com a Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018) e os requisitos da Google Play Store.</p>
+      <p style="margin-top:0.75rem;color:var(--text-muted);">© 2026 BarberPro <span class="separator">·</span> <span class="gold-text">O estilo que você merece</span></p>
+    </footer>
+  </main>
 </body>
 </html>
